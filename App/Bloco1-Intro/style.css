@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #007C4A
+}
+header{
+    text-align: center;
+}
+
+article{
+    margin: auto;
+    width: 70%;
+    min-height: 30vh;
+    background-color: white;
+    border-radius: 10px;
+}
+
+footer{
+    text-align: center;
+}
