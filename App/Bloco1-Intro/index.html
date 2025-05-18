@@ -104,6 +104,12 @@ Cores:
             top: 4px;
         }
 
+        .botaocontinuar.touchstart {
+        background-color: #bb77c9;
+        box-shadow: none;
+        top: 4px;
+        }
+
     </style>
 </head>
 <body>
@@ -126,5 +132,23 @@ Cores:
     <footer>
         <a href="painel2.html" class="botaocontinuar"><p>Continuar</p></a>
     </footer>
+
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const botao = document.querySelector(".botaocontinuar");
+
+        botao.addEventListener("touchstart", function () {
+            botao.classList.add("touchstart");
+        });
+
+        botao.addEventListener("touchend", function () {
+            botao.classList.remove("touchstart");
+        });
+
+        botao.addEventListener("touchcancel", function () {
+            botao.classList.remove("touchstart");
+        });
+    });
+</script>
 </body>
 </html>
