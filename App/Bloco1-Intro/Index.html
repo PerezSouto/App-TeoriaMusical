@@ -50,24 +50,85 @@
             color: black;
             padding: 1rem;
         }
+        .botaocontinuar{
+            display: inline-block;
+            background: #58cc02;
+            color: white;
+            padding: 10px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 0 #46a302;        
+            transition: all 0.1s ease;
+            position: relative;
+            top: 0px;
+        }
+        .botaocontinuar:active{
+            background-color: #58cc02;
+            box-shadow: none;
+            top: 4px;
+        }
+
+#progress-container {
+  width: 100%;
+  height: 30px;
+  background-color: #ddd;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #4caf50;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+  transition: width 0.3s ease;
+}
+
+#progress-text {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 5px;
+}
+
+
     </style>
 </head>
 <body>
     <header>
         <h1>test header</h1>
+        <div id="progress-container">
+  <div id="progress-bar"></div>
+</div>
+<p id="progress-text">0%</p>
 
     </header>
     <main>
         <article>
-            <h1>A música é a arte dos sons. <br>
-            Mas, o que são os sons?</h1>
+            <p>A música é a arte dos sons. <br>
+            Mas, o que são os sons?<p>
 
         </article>
 
     </main>
     <footer>
-        <h1>test <footer></footer></h1>
+        <a href="" class="botaocontinuar"><p>Continuar</p></a>
+    <footer>
 
-    </footer>
+    <script>
+        // Suponha que o jogador esteja em uma posição de 1 a 21 no tabuleiro
+function atualizarProgresso(posicaoAtual, totalCasas = 21) {
+  const porcentagem = Math.floor((posicaoAtual / totalCasas) * 100);
+  document.getElementById("progress-bar").style.width = `${porcentagem}%`;
+  document.getElementById("progress-text").innerText = `${porcentagem}%`;
+}
+
+// Exemplo de uso:
+atualizarProgresso(1); // Começo do jogo
+// depois, quando o jogador avança:
+atualizarProgresso(10); // Metade do caminho
+    </script>
 </body>
 </html>
