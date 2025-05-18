@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.5em;
+        }
+
+        header {
+            text-align: center;
+            padding: 1rem;
+            color: black;
+        }
+        #progreso {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem; /* Espaço entre o h1 e a imagem */
+        }
+        #progreso h1{
+            font-size: 1.5em;
+        }
+        #progreso img{
+            width: 60px;
+        }
+
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        article {
+            text-align: center;
+            width:100%;
+            min-height: 30vh;
+            background-color: white;
+            border-radius: 10px;
+            padding: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            background-color: white;
+            color: black;
+            padding: 1rem;
+        }
+        .botaocontinuar{
+            display: inline-block;
+            background: #58cc02;
+            color: white;
+            padding: 10px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 0 #46a302;        
+            transition: all 0.1s ease;
+            position: relative;
+            top: 0px;
+        }
+        .botaocontinuar:active{
+            background-color: #58cc02;
+            box-shadow: none;
+            top: 4px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div id="progreso">
+            <h1>Bloco 1: Introdução</h1>
+            <img src="../img-progresao/0.png" alt="">
+</div>
+
+    </header>
+    <main>
+        <article>
+            <p><strong>Timbre:</strong> Qualidade que permite diferenciar sons.  <br> <br>
+            Podemos reconhecer a voz de um amigo somente escutando-o. O timbre nos permite diferenciar a mesma nota em instrumentos musicais diferentes.
+            <p>
+
+        </article>
+
+    </main>
+    <footer>
+        <a href="painel9.html" class="botaocontinuar"><p>Continuar</p></a>
+    <footer>
+</body>
+</html>
