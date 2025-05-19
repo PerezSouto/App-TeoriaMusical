@@ -121,15 +121,16 @@ Cores:
     <div id="progreso">
             <img src="../img-progresao/coruja1.png" alt="imagem coruja indicando o Bloco 1">
             <h1>Introdução: A Música</h1>
-            <img class="imgprogreso" src="../img-progresao/75.png" alt="Imagem porcentagem de progessão">
+            <img class="imgprogreso" src="../img-progresao/95.png" alt="Imagem porcentagem de progessão">
     </div>
   </header>
   <main>
     <article>
-      <p>Por meio da <strong>altura</strong> podemos identificar se um som é:</p> <br>
-      <div class="botaopc" id="opc1">Agudo</div>
-      <div class="botaopc" id="opc2">Forte</div>
-      <div class="botaopc" id="opc3">Curto</div>
+      <p>Qual característica que nos permite identificar um instrumento musical?</p> <br>
+      <div class="botaopc" id="opc1">Duração</div>
+      <div class="botaopc" id="opc2">Intensidade</div>
+      <div class="botaopc" id="opc3">Altura</div>
+      <div class="botaopc" id="opc4">Timbre</div>
     </article>
   </main>
   <footer>
@@ -139,7 +140,7 @@ Cores:
   const botoes = document.querySelectorAll('.botaopc');
   const verificarBtn = document.getElementById('btnVerificar');
   const textoBotao = document.getElementById('textoBotao');
-  const botaoCorreto = document.getElementById('opc1');
+  const botaoCorreto = document.getElementById('opc4');
   let botaoSelecionado = null;
   let estado = 'verificar'; // estados possíveis: 'verificar', 'tentar', 'finalizado'
 
@@ -219,7 +220,7 @@ Cores:
       estado = 'verificar';
     } else if (estado === 'finalizado') {
       // Agora sim muda de página
-      window.location.href = 'painel10.html'; // <- Altere para o link da próxima etapa
+      window.location.href = 'painel13.html'; // <- Altere para o link da próxima etapa
     }
   });
     // Adiciona o efeito touchstart ao botão Verificar/Continuar

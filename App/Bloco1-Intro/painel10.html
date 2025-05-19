@@ -121,15 +121,15 @@ Cores:
     <div id="progreso">
             <img src="../img-progresao/coruja1.png" alt="imagem coruja indicando o Bloco 1">
             <h1>Introdução: A Música</h1>
-            <img class="imgprogreso" src="../img-progresao/75.png" alt="Imagem porcentagem de progessão">
+            <img class="imgprogreso" src="../img-progresao/80.png" alt="Imagem porcentagem de progessão">
     </div>
   </header>
   <main>
     <article>
-      <p>Por meio da <strong>altura</strong> podemos identificar se um som é:</p> <br>
-      <div class="botaopc" id="opc1">Agudo</div>
-      <div class="botaopc" id="opc2">Forte</div>
-      <div class="botaopc" id="opc3">Curto</div>
+      <p>Qual característica permite saber se um som é longo ou curto?</p> <br>
+      <div class="botaopc" id="opc1">Intensidade</div>
+      <div class="botaopc" id="opc2">Duração</div>
+      <div class="botaopc" id="opc3">Timbre</div>
     </article>
   </main>
   <footer>
@@ -139,7 +139,7 @@ Cores:
   const botoes = document.querySelectorAll('.botaopc');
   const verificarBtn = document.getElementById('btnVerificar');
   const textoBotao = document.getElementById('textoBotao');
-  const botaoCorreto = document.getElementById('opc1');
+  const botaoCorreto = document.getElementById('opc2');
   let botaoSelecionado = null;
   let estado = 'verificar'; // estados possíveis: 'verificar', 'tentar', 'finalizado'
 
@@ -219,7 +219,7 @@ Cores:
       estado = 'verificar';
     } else if (estado === 'finalizado') {
       // Agora sim muda de página
-      window.location.href = 'painel10.html'; // <- Altere para o link da próxima etapa
+      window.location.href = 'painel11.html'; // <- Altere para o link da próxima etapa
     }
   });
     // Adiciona o efeito touchstart ao botão Verificar/Continuar
