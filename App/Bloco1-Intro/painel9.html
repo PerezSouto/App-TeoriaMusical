@@ -86,6 +86,12 @@ Cores:
       box-shadow: none;
       top: 4px;
     }
+    .botaocontinuar.touchstart {
+    box-shadow: none;
+    top: 4px;
+    } 
+
+
     .botaopc {
       position: relative;
       background: rgb(224, 224, 224);
@@ -215,6 +221,20 @@ Cores:
       // Agora sim muda de página
       window.location.href = '#'; // <- Altere para o link da próxima etapa
     }
+  });
+    // Adiciona o efeito touchstart ao botão Verificar/Continuar
+  verificarBtn.addEventListener('touchstart', function () {
+    if (!verificarBtn.classList.contains('desativado')) {
+      verificarBtn.classList.add('touchstart');
+    }
+  });
+
+  verificarBtn.addEventListener('touchend', function () {
+    verificarBtn.classList.remove('touchstart');
+  });
+
+  verificarBtn.addEventListener('touchcancel', function () {
+    verificarBtn.classList.remove('touchstart');
   });
 </script>
 
