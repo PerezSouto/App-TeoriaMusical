@@ -126,9 +126,9 @@ Cores:
   </header>
   <main>
     <article>
-      <p>Quando subimos a "escada", os son vão ficando:</p> <br>
-      <div class="botaopc" id="opc1">mais agudos</div>
-      <div class="botaopc" id="opc2">mais graves</div>
+      <p>Quando baixamos a "escada" temos uma:</p> <br>
+      <div class="botaopc" id="opc1">escala ascendente</div>
+      <div class="botaopc" id="opc2">escala descendente</div>
     </article>
   </main>
   <footer>
@@ -138,7 +138,7 @@ Cores:
   const botoes = document.querySelectorAll('.botaopc');
   const verificarBtn = document.getElementById('btnVerificar');
   const textoBotao = document.getElementById('textoBotao');
-  const botaoCorreto = document.getElementById('opc1');
+  const botaoCorreto = document.getElementById('opc2');
   let botaoSelecionado = null;
   let estado = 'verificar'; // estados possíveis: 'verificar', 'tentar', 'finalizado'
 

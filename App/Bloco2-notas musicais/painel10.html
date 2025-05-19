@@ -126,7 +126,7 @@ Cores:
   </header>
   <main>
     <article>
-      <p>A corda mais fina do violino tem o som mais:</p> <br>
+      <p>A corda mais grossa do violino tem o som mais:</p> <br>
       <div class="botaopc" id="opc1">Agudo</div>
       <div class="botaopc" id="opc2">Grave</div>
       <div class="botaopc" id="opc3">Todas cordas são iguais</div>
@@ -139,7 +139,7 @@ Cores:
   const botoes = document.querySelectorAll('.botaopc');
   const verificarBtn = document.getElementById('btnVerificar');
   const textoBotao = document.getElementById('textoBotao');
-  const botaoCorreto = document.getElementById('opc1');
+  const botaoCorreto = document.getElementById('opc2');
   let botaoSelecionado = null;
   let estado = 'verificar'; // estados possíveis: 'verificar', 'tentar', 'finalizado'
 
@@ -237,8 +237,6 @@ Cores:
     verificarBtn.classList.remove('touchstart');
   });
 </script>
-
-
 
 
 </body>
