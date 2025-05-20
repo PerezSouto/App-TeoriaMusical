@@ -134,19 +134,19 @@
 
       <!-- Botão 3 -->
       <a class="botaomenu" data-modal="modal3">
-        <img src="App/icones-menu/2.png" alt="Botão 3" />
+        <img src="App/icones-menu/3.png" alt="Botão 3" />
       </a>
 
       <!-- Botão 4 -->
       <a class="botaomenu" data-modal="modal4">
-        <img src="App/icones-menu/2.png" alt="Botão 4" />
+        <img src="App/icones-menu/4.png" alt="Botão 4" />
       </a>
 
       <!-- Modal 1 -->
       <div id="modal1" class="modal">
         <div class="modal-conteudo">
           <span class="fechar">&times;</span>
-          <p>Bloco 1: Introdução</p>
+          <p>Bloco 1: Introdução: A Música</p>
           <a href="App/Bloco1-Intro/index.html" class="botao-entrar">Entrar</a>
         </div>
       </div>
@@ -185,7 +185,7 @@
   </footer>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
   const botoes = document.querySelectorAll(".botaomenu");
 
   botoes.forEach(botao => {
@@ -201,8 +201,8 @@
       const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 
       modal.style.display = "block";
-      modal.style.top = (rect.bottom + scrollTop + 5) + "px";  // 5px de espaçamento embaixo do botão
-      modal.style.left = (rect.left + scrollLeft) + "px";     // alinhado à esquerda do botão
+      modal.style.top = (rect.bottom + scrollTop + 5) + "px";
+      modal.style.left = (rect.left + scrollLeft) + "px";
     });
 
     fecharBtn.addEventListener("click", function () {
@@ -210,16 +210,25 @@
     });
   });
 
-  // Fechar modal ao clicar fora de qualquer modal aberta
-  window.addEventListener("click", function (event) {
+  // Função para fechar modais ao clicar/tocar fora
+  function fecharModais(event) {
     const modais = document.querySelectorAll(".modal");
     modais.forEach(modal => {
-      if (modal.style.display === "block" && !modal.contains(event.target) && !event.target.classList.contains("botaomenu") && !event.target.closest(".botaomenu")) {
+      if (
+        modal.style.display === "block" &&
+        !modal.contains(event.target) &&
+        !event.target.closest(".botaomenu")
+      ) {
         modal.style.display = "none";
       }
     });
-  });
+  }
+
+  // Fecha ao clicar com mouse ou tocar com dedo
+  window.addEventListener("click", fecharModais);
+  window.addEventListener("touchstart", fecharModais);
 });
+
 
 </script>
 </body>
