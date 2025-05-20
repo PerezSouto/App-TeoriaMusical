@@ -25,11 +25,11 @@ Cores:
         }
 
         body {
-            max-width: 700px;
+            width: 100%;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            background-color: white;
+            background-image: radial-gradient(circle, white 10%, #009A74 60%) ;
             font-family: 'Roboto', sans-serif;
             line-height: 1.5em;
         }
@@ -69,16 +69,19 @@ Cores:
             text-align: center;
             width:100%;
             min-height: 30vh;
-            background-color: white;
             border-radius: 10px;
             padding: 1rem;
+        }
+
+        article img{
+            width: 50%;
+            max-width: 300px;
         }
 
         footer {
             font-family: 'Roboto';
             font-weight: 600;
             text-align: center;
-            background-color: white;
             color: black;
             padding: 1rem;
         }
@@ -117,14 +120,12 @@ Cores:
     </header>
     <main>
         <article>
-            <p><a href="App/Bloco1-Intro/index.html">Bloco 1</a></p>
-            <p><a href="App/Bloco2-notas musicais/painel1.html">Bloco 2</a></p>
-
+            <img src="logo-aprendiz.png" alt="">
         </article>
 
     </main>
     <footer>
-        <a href="App/Bloco1-Intro/painel2.html" class="botaocontinuar"><p>Continuar</p></a>
+        <a href="menu.html" class="botaocontinuar"><p>Começar</p></a>
     </footer>
 
     <script>
