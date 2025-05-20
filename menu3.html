@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu com Modais</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    article {
+    text-align: center;
+    width: 100%;
+    min-height: 30vh;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:1em /* Espaçamento entre os botões */
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+    }
+    .botaomenu img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .botaomenu {
+    display: inline-block;
+    border-radius: 50%;
+    box-shadow: 0 4px 0 #FD5E00;
+    transition: all 0.1s ease;
+    position: relative;
+    top: 0px;
+    overflow: hidden;
+    cursor: pointer;
+    }
+
+    .botaomenu:hover {
+      top: 4px;
+    }
+
+
+    .modal {
+      display: none;
+      position: absolute;
+      z-index: 10;
+      pointer-events: auto;
+    }
+
+    .modal-conteudo {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 15px;
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .fechar {
+      position: absolute;
+      top: 0.3rem;
+      right: 0.8rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #53355a;
+    }
+
+    .botao-entrar {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1.2rem;
+      background-color: #915c9c;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 4px 0 #53355a;
+      position: relative;
+      top: 0;
+      transition: all 0.1s ease;
+    }
+
+    .botao-entrar:hover {
+      top: 4px;
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+
+      <!-- Botão 1 -->
+      <a class="botaomenu" data-modal="modal1">
+        <img src="App/icones-menu/1.png" alt="Botão 1" />
+      </a>
+
+      <!-- Botão 2 -->
+      <a class="botaomenu" data-modal="modal2">
+        <img src="App/icones-menu/2.png" alt="Botão 2" />
+      </a>
+
+      <!-- Botão 3 -->
+      <a class="botaomenu" data-modal="modal3">
+        <img src="App/icones-menu/2.png" alt="Botão 3" />
+      </a>
+
+      <!-- Botão 4 -->
+      <a class="botaomenu" data-modal="modal4">
+        <img src="App/icones-menu/2.png" alt="Botão 4" />
+      </a>
+
+      <!-- Modal 1 -->
+      <div id="modal1" class="modal">
+        <div class="modal-conteudo">
+          <span class="fechar">&times;</span>
+          <p>Bloco 1: Introdução</p>
+          <a href="App/Bloco1-Intro/index.html" class="botao-entrar">Entrar</a>
+        </div>
+      </div>
+
+      <!-- Modal 2 -->
+      <div id="modal2" class="modal">
+        <div class="modal-conteudo">
+          <span class="fechar">&times;</span>
+          <p>Bloco 2: Notas Musicais</p>
+          <a href="App/Bloco2-notas musicais/painel1.html" class="botao-entrar">Entrar</a>
+        </div>
+      </div>
+
+      <!-- Modal 3 -->
+      <div id="modal3" class="modal">
+        <div class="modal-conteudo">
+          <span class="fechar">&times;</span>
+          <p>Bloco 3: Conteúdo Extra</p>
+          <a href="App/Bloco2-notas musicais/painel1.html" class="botao-entrar">Entrar</a>
+        </div>
+      </div>
+
+      <!-- Modal 4 -->
+      <div id="modal4" class="modal">
+        <div class="modal-conteudo">
+          <span class="fechar">&times;</span>
+          <p>Bloco 4: Prática</p>
+          <a href="App/Bloco2-notas musicais/painel1.html" class="botao-entrar">Entrar</a>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+  </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+  const botoes = document.querySelectorAll(".botaomenu");
+
+  botoes.forEach(botao => {
+    const modalId = botao.dataset.modal;
+    const modal = document.getElementById(modalId);
+    const fecharBtn = modal.querySelector(".fechar");
+
+    botao.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const rect = botao.getBoundingClientRect();
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+      modal.style.display = "block";
+      modal.style.top = (rect.bottom + scrollTop + 5) + "px";  // 5px de espaçamento embaixo do botão
+      modal.style.left = (rect.left + scrollLeft) + "px";     // alinhado à esquerda do botão
+    });
+
+    fecharBtn.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+  });
+
+  // Fechar modal ao clicar fora de qualquer modal aberta
+  window.addEventListener("click", function (event) {
+    const modais = document.querySelectorAll(".modal");
+    modais.forEach(modal => {
+      if (modal.style.display === "block" && !modal.contains(event.target) && !event.target.classList.contains("botaomenu") && !event.target.closest(".botaomenu")) {
+        modal.style.display = "none";
+      }
+    });
+  });
+});
+
+</script>
+</body>
+</html>
