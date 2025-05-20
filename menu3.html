@@ -206,18 +206,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const modalId = botao.dataset.modal;
     const modal = document.getElementById(modalId);
     const fecharBtn = modal.querySelector(".fechar");
-
+    
     botao.addEventListener("click", function (e) {
-      e.preventDefault();
+    e.preventDefault();
 
-      const rect = botao.getBoundingClientRect();
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-
-      modal.style.display = "block";
-      modal.style.top = (rect.bottom + scrollTop + 5) + "px";
-      modal.style.left = (rect.left + scrollLeft) + "px";
+    // Fecha todos os modais antes de abrir o novo
+    document.querySelectorAll(".modal").forEach(m => {
+        m.style.display = "none";
     });
+
+    const rect = botao.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+    modal.style.display = "block";
+    modal.style.top = (rect.bottom + scrollTop + 5) + "px";
+    modal.style.left = (rect.left + scrollLeft) + "px";
+    });
+
 
     fecharBtn.addEventListener("click", function () {
       modal.style.display = "none";
