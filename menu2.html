@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introdução</title>
+    <style>
+        /* Configurações
+Cores:
+- Roxo escuro sombra: #53355a
+- Roxo médio background botão: #915c9c
+- Roxo claro hover: #bb77c9
+- Verde: #007C4A */
+        
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            font-family: 'Roboto', sans-serif;
+            line-height: 2em;
+        }
+
+
+        main {
+            font-weight: 500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        article {
+            text-align: center;
+            width: 100%;
+            min-height: 30vh;
+            background-color: white;
+            border-radius: 10px;
+            padding-top: 20%;
+        }
+
+        footer {
+            font-weight: 600;
+            text-align: center;
+            background-color: white;
+            color: black;
+            padding: 1rem;
+        }
+
+        .botaomenu img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .botaomenu {
+            display: inline-block;
+            border-radius: 50%;
+            box-shadow: 0 4px 0 #FD5E00;
+            transition: all 0.1s ease;
+            position: relative;
+            top: 0px;
+        }
+
+        .botaomenu:hover {
+        }
+
+        .botaomenu:active {
+            box-shadow: none;
+            top: 4px;
+        }
+
+        .botaomenu.touchstart {
+            box-shadow: none;
+            top: 4px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Conteúdo opcional do cabeçalho -->
+    </header>
+    <main>
+        <article>
+            <p>
+                <a href="App/Bloco1-Intro/index.html" class="botaomenu">
+                    <img src="App/icones-menu/1.png" alt="Botão 1">
+                </a>
+            </p>
+            <p>
+                <a href="App/Bloco2-notas musicais/painel1.html" class="botaomenu">
+                    <img src="App/icones-menu/2.png" alt="Botão 2">
+                </a>
+            </p>
+        </article>
+    </main>
+    <footer>
+        <!-- Conteúdo opcional do rodapé -->
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const botoes = document.querySelectorAll(".botaomenu");
+
+            botoes.forEach(botao => {
+                botao.addEventListener("touchstart", function () {
+                    botao.classList.add("touchstart");
+                });
+
+                botao.addEventListener("touchend", function () {
+                    botao.classList.remove("touchstart");
+                });
+
+                botao.addEventListener("touchcancel", function () {
+                    botao.classList.remove("touchstart");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
