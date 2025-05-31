@@ -59,7 +59,7 @@ Cores:
     }
 
     article img{
-        width: 90%;
+        width: 150px;
     }
     footer {
       font-family: 'Roboto';
@@ -131,10 +131,11 @@ Cores:
   <main>
     <article>
       <p>Quantos tempos tem a seguinte figura musical?</p> <br>
+      <img src="imagens/brevpont.png" alt="semibreve com ponto">
       
-      <div class="botaopc" id="opc1">tempo</div>
-      <div class="botaopc" id="opc2">2 semicc</div>
-      <div class="botaopc" id="opc3">3 semitons</div>
+      <div class="botaopc" id="opc1">6 tempos</div>
+      <div class="botaopc" id="opc2">5 tempos</div>
+      <div class="botaopc" id="opc3">4 tempos</div>
     </article>
   </main>
   <footer>
@@ -144,7 +145,7 @@ Cores:
   const botoes = document.querySelectorAll('.botaopc');
   const verificarBtn = document.getElementById('btnVerificar');
   const textoBotao = document.getElementById('textoBotao');
-  const botaoCorreto = document.getElementById('opc2');
+  const botaoCorreto = document.getElementById('opc1');
   let botaoSelecionado = null;
   let estado = 'verificar'; // estados possíveis: 'verificar', 'tentar', 'finalizado'
 
