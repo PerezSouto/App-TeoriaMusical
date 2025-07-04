@@ -31,12 +31,10 @@
 }
 
 @media (max-width: 900px){
-  .game-area {
-  position: relative;
-  width: 100vw;
-  height: 100dvh; /* usa altura da viewport dinâmica */
-  overflow: hidden;
-}
+  .game-area{
+    max-width:700px ;
+    max-height:300px ;
+  }
 }
 
 
@@ -278,25 +276,6 @@
   window.addEventListener("resize", checkOrientation);
   window.addEventListener("orientationchange", checkOrientation);
   window.addEventListener("load", checkOrientation);
-
-function enterFullscreen() {
-  const elem = document.documentElement; // ou use document.body
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) { // Safari
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { // IE11
-    elem.msRequestFullscreen();
-  }
-}
-
-  function ajustarAlturaTela() {
-    const alturaTela = window.innerHeight;
-    document.querySelector(".game-area").style.height = alturaTela + "px";
-  }
-
-  window.addEventListener("resize", ajustarAlturaTela);
-  window.addEventListener("load", ajustarAlturaTela);
 
   </script>
 </body>
