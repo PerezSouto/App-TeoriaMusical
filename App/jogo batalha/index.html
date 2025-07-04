@@ -269,6 +269,17 @@
   window.addEventListener("orientationchange", checkOrientation);
   window.addEventListener("load", checkOrientation);
 
+function enterFullscreen() {
+  const elem = document.documentElement; // ou use document.body
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { // Safari
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { // IE11
+    elem.msRequestFullscreen();
+  }
+}
+
   </script>
 </body>
 </html>
