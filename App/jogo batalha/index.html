@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jogo</title>
+  <style>
+    #orientationWarning {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000000cc;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  padding-top: 30vh;
+  z-index: 2000;
+}
+
+@media screen and (orientation: portrait) {
+  #orientationWarning {
+    display: block;
+  }
+
+  .game-area {
+    display: none;
+  }
+}
+
+
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    .game-area {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .personagem {
+      position: absolute;
+      bottom: 50px;
+      left: 100px;
+      width: 120px;
+      transition: transform 0.3s;
+    }
+
+    .inimigo {
+      position: absolute;
+      bottom: 50px;
+      right: 100px;
+      width: 120px;
+      transition: right 0.1s linear;
+    }
+
+    .hud {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: white;
+    }
+
+    #hud {
+      display: none; /* Esconde a HUD até o jogo começar */
+    }
+
+    #noteImage {
+      height: 200px;
+      margin-bottom: 10px;
+    }
+
+    #options button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 18px;
+    }
+
+    #feedback {
+      font-weight: bold;
+      margin-top: 10px;
+      color: white;
+      font-size: 20px;
+    }
+
+    #timerBar {
+      height: 10px;
+      width: 100%;
+      background-color: red;
+      transition: width 0.1s linear;
+      margin-top: 10px;
+    }
+
+    #statusBar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: white;
+      font-size: 20px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    #level {
+      margin-top: 5px;
+      font-size: 22px;
+      color: yellow;
+      font-weight: bold;
+    }
+
+    #gameOver {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 48px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    #gameOver button {
+      margin-top: 15px;
+      font-size: 20px;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+
+    #levelUpMessage {
+      display: none;
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 60px;
+      color: yellow;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px black;
+      animation: pop 1s ease-out;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes pop {
+      0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+    }
+
+    #startScreen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 25px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    #startScreen> p{
+        margin: 10px
+    }
+
+    #startScreen button {
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: bolder;
+      width: 180px;
+      text-align: left;
+      padding: 10px 10px;
+      cursor: pointer;
+    }
+
+    #topRightButtons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+}
+
+#topRightButtons button {
+  margin-left: 10px;
+  padding: 8px 14px;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#topRightButtons button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="game-area">
+    <img src="imagens/fundo.jpg" class="background" />
+    <img id="personagem" src="imagens/personagem.png" class="personagem" />
+    <img id="inimigo" src="imagens/inimigo.png" class="inimigo" />
+
+
+
+<div id="topRightButtons">
+  <button onclick="exitGame()">⏹️ Sair</button>
+</div>
+
+    <div id="startScreen">
+      <p>Selecione o tipo de jogo:</p>
+      <a href="indexLa.html"><button class="botaostart">▶️ Corda Lá</button></a>
+      <a href="indexMi.html"><button class="botaostart">▶️ Corda Mi</button></a>
+      <a href="indexLaMi.html"><button class="botaostart">▶️ Cordas Lá-Mi</button></a>
+      <a href="indexRe.html"><button class="botaostart">▶️ Corda Ré</button></a>
+      <a href="indexLaMiRe.html"><button class="botaostart">▶️ Cordas Lá-Mi-Ré</button></a>
+      <a href="indexSol.html"><button class="botaostart">▶️ Corda Sol</button></a>
+      <a href="indexTodas.html"><button class="botaostart">▶️ Todas cordas</button></a>
+    </div>
+  </div>
+  <div id="orientationWarning">
+  🔄 Por favor, gire seu dispositivo para o modo paisagem para jogar.
+  <p><img src="imagens/rotationcelular.png" alt="foto dispositivo em modo paisagem"></p>
+</div>
+
+  <script>
+
+  function checkOrientation() {
+    const warning = document.getElementById("orientationWarning");
+    const gameArea = document.querySelector(".game-area");
+    if (window.innerHeight > window.innerWidth) {
+      warning.style.display = "block";
+      gameArea.style.display = "none";
+    } else {
+      warning.style.display = "none";
+      gameArea.style.display = "block";
+    }
+  }
+
+  window.addEventListener("resize", checkOrientation);
+  window.addEventListener("orientationchange", checkOrientation);
+  window.addEventListener("load", checkOrientation);
+
+  </script>
+</body>
+</html>
+
