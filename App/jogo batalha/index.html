@@ -49,7 +49,8 @@
     .game-area {
       position: relative;
       width: 100vw;
-      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
     }
 
     .background {
@@ -288,6 +289,14 @@ function enterFullscreen() {
     elem.msRequestFullscreen();
   }
 }
+
+  function ajustarAlturaTela() {
+    const alturaTela = window.innerHeight;
+    document.querySelector(".game-area").style.height = alturaTela + "px";
+  }
+
+  window.addEventListener("resize", ajustarAlturaTela);
+  window.addEventListener("load", ajustarAlturaTela);
 
   </script>
 </body>
