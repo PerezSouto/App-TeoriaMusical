@@ -63,7 +63,7 @@
       padding: 10px 15px;
       border-radius: 10px;
       color: white;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       text-align: center
     }
 
@@ -190,7 +190,6 @@
 
     #startScreen{
       width: 500px;
-      font-size: 1.5rem;
     }
     #statusBar{
       font-size: 20px;
@@ -340,13 +339,13 @@ function startRound() {
   currentNote = noteQueue.pop();
   noteImage.src = currentNote.src;
 
-  const options = [...noteImages];
-  options.forEach(opt => {
-    const btn = document.createElement("button");
-    btn.textContent = opt.note;
-    btn.onclick = () => checkAnswer(opt.note);
-    optionsContainer.appendChild(btn);
-  });
+      const uniqueOptions = [...new Set(noteImages.map(n => n.note.replace(/[0-9]/g, "")))];
+      uniqueOptions.forEach(opt => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.onclick = () => checkAnswer(opt);
+        optionsContainer.appendChild(btn);
+      });
 
   timeLeft = baseTime;
   startTime = Date.now();
@@ -373,26 +372,26 @@ function updateTimer() {
   }
 }
 
-function checkAnswer(note) {
-  clearInterval(timer);
+    function checkAnswer(note) {
+      clearInterval(timer);
 
-  if (note === currentNote.note) {
-    feedback.textContent = "✅ Acertou!";
-    correctAnswers++;
+      if (note === currentNote.note.replace(/[0-9]/g, "")) {
+        feedback.textContent = "✅ Acertou!";
+        correctAnswers++;
 
-    if (correctAnswers % 5 === 0) {
-      level++;
-      baseTime = Math.max(2000, baseTime - 2000);
-      updateLevelDisplay();
-      showLevelUpMessage();
+        if (correctAnswers % 5 === 0) {
+          level++;
+          baseTime = Math.max(2000, baseTime - 2000);
+          updateLevelDisplay();
+          showLevelUpMessage();
+        }
+
+        attack();
+      } else {
+        feedback.textContent = "❌ Errou!";
+        loseLife(false);
+      }
     }
-
-    attack();
-  } else {
-    feedback.textContent = "❌ Errou!";
-    loseLife(false);
-  }
-}
 
 function attack() {
   personagem.style.transform = "translateX(20px)";
