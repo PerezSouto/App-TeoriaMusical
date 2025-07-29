@@ -44,6 +44,113 @@
     gap:1em /* Espaçamento entre os botões */
     }
 
+    .map-container{
+        position: relative;
+        width: 100%;
+        aspect-ratio: 700 / 500; /* ajuste conforme a proporção da imagem */
+        max-width: 700px;
+        margin: auto;
+    }
+
+    .map-background{
+        width: 100%;
+        object-fit: cover;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #botao1{
+        position: absolute;
+        top: 25%;
+        left: 44%; 
+    }
+
+    #botao2{
+        position: absolute;
+        top: 40%;
+        left:25% ;
+    }
+
+    #botao3{
+        position: absolute;
+        top: 70%;
+        left: 8%;
+    }
+
+    #botao4{
+        position: absolute;
+        top: 100% ;
+        left: 8%;
+    }
+
+    #botao5{
+        position: absolute;
+        top: 124%;
+        left: 23%;
+    }
+
+    #botao6{
+        position: absolute;
+        top: 95% ;
+        left: 49% ;
+    }
+
+    #botao7{
+        position: absolute;
+        top: 121%;
+        left: 70%;
+    }
+
+    #botao8{
+        position: absolute;
+        top: 175%;
+        left: 73% ;
+    }
+
+    #botao9{
+        position: absolute;
+        top: 225% ;
+        left:58% ;
+    }
+
+    #botao10{
+        position: absolute;
+        top: 202%;
+        left: 29%;
+    }
+
+    #botao11{
+        position: absolute;
+        top: 240% ;
+        left: 10%;
+    }
+
+    #botao12{
+        position: absolute;
+        top:271% ;
+        left: 26%;
+    }
+
+    #botao13{
+        position: absolute;
+        top: 274%;
+        left: 50%;
+    }
+
+    #botao14{
+        position: absolute;
+        top: 323%;
+        left: 57%;
+    }
+
+    #botao15{
+        position: absolute;
+        top: 366%;
+        left: 55%;
+    }
+
     footer {
       text-align: center;
       padding: 1rem;
@@ -134,80 +241,81 @@
 </head>
 <body>
   <main>
-    <article>
+    <article class="map-container">
+      <img src="App/icones-menu/fundo.jpg" alt="fundo de paisagem jogo" class="map-background">
 
       <!-- Botão 1 -->
-      <a class="botaomenu" data-modal="modal1">
+      <a id="botao1" class="botaomenu" data-modal="modal1">
         <img src="App/icones-menu/1.png" alt="Botão 1" />
       </a>
 
       <!-- Botão 2 -->
-      <a class="botaomenu" data-modal="modal2">
+      <a id="botao2" class="botaomenu" data-modal="modal2">
         <img src="App/icones-menu/2.png" alt="Botão 2" />
       </a>
 
       <!-- Botão 6 -->
-      <a class="botaomenu" data-modal="modal6">
+      <a id="botao3" class="botaomenu" data-modal="modal6">
         <img src="App/icones-menu/jogo.png" alt="Botão 5" />
       </a>
 
       <!-- Botão 8 -->
-      <a class="botaomenu" data-modal="modal8">
+      <a id="botao4" class="botaomenu" data-modal="modal8">
         <img src="App/icones-menu/jogo.png" alt="Botão 8" />
       </a>
 
       <!-- Botão 3 -->
-      <a class="botaomenu" data-modal="modal3">
+      <a id="botao5" class="botaomenu" data-modal="modal3">
         <img src="App/icones-menu/3.png" alt="Botão 3" />
       </a>
 
        <!-- Botão 4 -->
-      <a class="botaomenu" data-modal="modal4">
+      <a id="botao6" class="botaomenu" data-modal="modal4">
         <img src="App/icones-menu/4.png" alt="Botão 4" />
       </a>
 
           <!-- Botão 10 -->
-      <a class="botaomenu" data-modal="modal10">
+      <a id="botao7" class="botaomenu" data-modal="modal10">
         <img src="App/icones-menu/jogo.png" alt="Botão 10" />
       </a>
 
       <!-- Botão 7 -->
-      <a class="botaomenu" data-modal="modal7">
+      <a id="botao8" class="botaomenu" data-modal="modal7">
         <img src="App/icones-menu/5.png" alt="Botão 7" />
       </a>
 
       <!-- Botão 9 -->
-      <a class="botaomenu" data-modal="modal9">
+      <a id="botao9" class="botaomenu" data-modal="modal9">
         <img src="App/icones-menu/6.png" alt="Botão 9" />
       </a>
 
       <!-- Botão 5 -->
-      <a class="botaomenu" data-modal="modal5">
+      <a id="botao10" class="botaomenu" data-modal="modal5">
         <img src="App/icones-menu/jogo.png" alt="Botão 5" />
       </a>
 
       <!-- Botão 11 -->
-      <a class="botaomenu" data-modal="modal11">
+      <a id="botao11" class="botaomenu" data-modal="modal11">
         <img src="App/icones-menu/7.png" alt="Botão 11" />
       </a>
 
       <!-- Botão 12 -->
-      <a class="botaomenu" data-modal="modal12">
+      <a id="botao12" class="botaomenu" data-modal="modal12">
         <img src="App/icones-menu/8.png" alt="Botão 12" />
       </a>
 
       <!-- Botão 13 -->
-      <a class="botaomenu" data-modal="modal13">
+      <a id="botao13" class="botaomenu" data-modal="modal13">
         <img src="App/icones-menu/9.png" alt="Botão 13" />
       </a>
 
       <!-- Botão 14 -->
-      <a class="botaomenu" data-modal="modal14">
+      <a id="botao14" class="botaomenu" data-modal="modal14">
         <img src="App/icones-menu/10.png" alt="Botão 14" />
       </a>
 
       <!-- Botão 15 -->
-      <a class="botaomenu" data-modal="modal15">
+      <a id="botao15" class="botaomenu" data-modal="modal15">
         <img src="App/icones-menu/jogo.png" alt="Botão 14" />
       </a>
 
@@ -258,7 +366,7 @@
         <div class="modal-conteudo">
           <span class="fechar">&times;</span>
           <p>Jogo: Figuras Musicais e Pausas</p>
-          <a href="#" class="botao-entrar">Entrar</a>
+          <a href="App/jogo balao/index2.html" class="botao-entrar">Entrar</a>
         </div>
       </div>
 

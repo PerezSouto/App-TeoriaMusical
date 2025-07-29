@@ -33,129 +33,56 @@
     }
 
     article {
-    text-align: center;
-    width: 100%;
-    min-height: 30vh;
-    padding-top: 10%;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap:1em /* Espaçamento entre os botões */
-    }
-
-    .map-container{
-        position: relative;
-        width: 100%;
-        aspect-ratio: 700 / 500; /* ajuste conforme a proporção da imagem */
-        max-width: 700px;
-        margin: auto;
-    }
-
-    .map-background{
-        width: 100%;
-        object-fit: cover;
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    #botao1{
-        position: absolute;
-        top: 25%;
-        left: 44%; 
-    }
-
-    #botao2{
-        position: absolute;
-        top: 40%;
-        left:25% ;
-    }
-
-    #botao3{
-        position: absolute;
-        top: 70%;
-        left: 8%;
-    }
-
-    #botao4{
-        position: absolute;
-        top: 100% ;
-        left: 8%;
-    }
-
-    #botao5{
-        position: absolute;
-        top: 124%;
-        left: 23%;
-    }
-
-    #botao6{
-        position: absolute;
-        top: 95% ;
-        left: 49% ;
-    }
-
-    #botao7{
-        position: absolute;
-        top: 121%;
-        left: 70%;
-    }
-
-    #botao8{
-        position: absolute;
-        top: 175%;
-        left: 73% ;
-    }
-
-    #botao9{
-        position: absolute;
-        top: 225% ;
-        left:58% ;
-    }
-
-    #botao10{
-        position: absolute;
-        top: 202%;
-        left: 29%;
-    }
-
-    #botao11{
-        position: absolute;
-        top: 240% ;
-        left: 10%;
-    }
-
-    #botao12{
-        position: absolute;
-        top:271% ;
-        left: 26%;
-    }
-
-    #botao13{
-        position: absolute;
-        top: 274%;
-        left: 50%;
-    }
-
-    #botao14{
-        position: absolute;
-        top: 323%;
-        left: 57%;
-    }
-
-    #botao15{
-        position: absolute;
-        top: 366%;
-        left: 55%;
-    }
-
-    footer {
       text-align: center;
-      padding: 1rem;
-      font-weight: bold;
+      width: 100%;
+      min-height: 30vh;
+      padding-top: 10%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
     }
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 700 / 500;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .map-background {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* POSIÇÕES DOS BOTÕES */
+    #botao1 { top: 25%; left: 44%; }
+    #botao2 { top: 40%; left: 25%; }
+    #botao3 { top: 70%; left: 8%; }
+    #botao4 { top: 100%; left: 8%; }
+    #botao5 { top: 124%; left: 23%; }
+    #botao6 { top: 95%; left: 49%; }
+    #botao7 { top: 121%; left: 70%; }
+    #botao8 { top: 175%; left: 73%; }
+    #botao9 { top: 225%; left: 58%; }
+    #botao10 { top: 202%; left: 29%; }
+    #botao11 { top: 240%; left: 10%; }
+    #botao12 { top: 271%; left: 26%; }
+    #botao13 { top: 274%; left: 50%; }
+    #botao14 { top: 323%; left: 57%; }
+    #botao15 { top: 366%; left: 55%; }
+
+    #botao1, #botao2, #botao3, #botao4, #botao5, #botao6,
+    #botao7, #botao8, #botao9, #botao10, #botao11, #botao12,
+    #botao13, #botao14, #botao15 {
+      position: absolute;
+    }
+
     .botaomenu img {
       width: 50px;
       height: 50px;
@@ -164,36 +91,44 @@
     }
 
     .botaomenu {
-    display: inline-block;
-    border-radius: 50%;
-    box-shadow: 0 4px 0 #FD5E00;
-    transition: all 0.1s ease;
-    position: relative;
-    top: 0px;
-    overflow: hidden;
-    cursor: pointer;
+      display: inline-block;
+      border-radius: 50%;
+      box-shadow: 0 4px 0 #FD5E00;
+      transition: all 0.1s ease;
+      position: relative;
+      top: 0px;
+      overflow: hidden;
+      cursor: pointer;
     }
 
-    .botaomenu:hover {
+    .botaomenu:hover,
+    .botaomenu:active {
+      top: 4px;
+      box-shadow: none;
+    }
+
+    .botaomenu.touchstart {
+      box-shadow: none;
       top: 4px;
     }
 
-
     .modal {
       display: none;
-      position: absolute;
+      position: fixed; /* CORRIGIDO */
       z-index: 10;
       pointer-events: auto;
     }
 
     .modal-conteudo {
-      background-color: white;
-      background-color:#fdd700;
+      background-color: #fdd700;
       padding: 1.5rem;
       border-radius: 15px;
       width: 200px;
+      max-width: 90vw;
+      max-height: 90vh;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
       text-align: center;
+      overflow-y: auto;
     }
 
     .fechar {
@@ -224,19 +159,12 @@
       top: 4px;
       box-shadow: none;
     }
-    
-    .botaomenu:hover,
-    .botaomenu:active {
-    top: 4px;
-    box-shadow: none;
-    }
-    
-    .botaomenu.touchstart {
-            box-shadow: none;
-            top: 4px;
-    }
 
-
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -244,7 +172,7 @@
     <article class="map-container">
       <img src="App/icones-menu/fundo.jpg" alt="fundo de paisagem jogo" class="map-background">
 
-      <!-- Botão 1 -->
+          <!-- Botão 1 -->
       <a id="botao1" class="botaomenu" data-modal="modal1">
         <img src="App/icones-menu/1.png" alt="Botão 1" />
       </a>
@@ -459,65 +387,86 @@
           <a href="#" class="botao-entrar">Entrar</a>
         </div>
       </div>
-
     </article>
   </main>
 
-  <footer>
-  </footer>
+  <footer></footer>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const botoes = document.querySelectorAll(".botaomenu");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const botoes = document.querySelectorAll(".botaomenu");
 
-  botoes.forEach(botao => {
-    const modalId = botao.dataset.modal;
-    const modal = document.getElementById(modalId);
-    const fecharBtn = modal.querySelector(".fechar");
+      botoes.forEach(botao => {
+        const modalId = botao.dataset.modal;
+        const modal = document.getElementById(modalId);
+        const fecharBtn = modal.querySelector(".fechar");
 
-    botao.addEventListener("click", function (e) {
-    e.preventDefault();
+        botao.addEventListener("click", function (e) {
+          e.preventDefault();
 
-    // Fecha todos os modais antes de abrir o novo
-    document.querySelectorAll(".modal").forEach(m => {
-        m.style.display = "none";
-    });
+          // Fecha todos os modais antes de abrir
+          document.querySelectorAll(".modal").forEach(m => {
+            m.style.display = "none";
+          });
 
-    const rect = botao.getBoundingClientRect();
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+          modal.style.display = "block";
 
-    modal.style.display = "block";
-    modal.style.top = (rect.bottom + scrollTop + 5) + "px";
-    modal.style.left = (rect.left + scrollLeft) + "px";
-    });
+          const rect = botao.getBoundingClientRect();
+          const modalWidth = modal.offsetWidth;
+          const modalHeight = modal.offsetHeight;
 
+          let top = rect.bottom + 5;
+          let left = rect.left;
 
-    fecharBtn.addEventListener("click", function () {
-      modal.style.display = "none";
-    });
-  });
+          const screenWidth = window.innerWidth;
+          const screenHeight = window.innerHeight;
 
-  // Função para fechar modais ao clicar/tocar fora
-  function fecharModais(event) {
-    const modais = document.querySelectorAll(".modal");
-    modais.forEach(modal => {
-      if (
-        modal.style.display === "block" &&
-        !modal.contains(event.target) &&
-        !event.target.closest(".botaomenu")
-      ) {
-        modal.style.display = "none";
+          // Ajusta posição se o modal ultrapassar a tela na horizontal
+          if (left + modalWidth > screenWidth) {
+            left = screenWidth - modalWidth - 10;
+          }
+
+          // Se passar da parte inferior da tela, abre acima do botão
+          if (top + modalHeight > screenHeight) {
+            top = rect.top - modalHeight - 5;
+          }
+
+          // Evita que o modal fique fora da tela pela esquerda
+          if (left < 0) {
+            left = 10;
+          }
+
+          // Evita que o modal fique fora da tela no topo
+          if (top < 0) {
+            top = 10;
+          }
+
+          modal.style.top = `${top}px`;
+          modal.style.left = `${left}px`;
+        });
+
+        fecharBtn.addEventListener("click", function () {
+          modal.style.display = "none";
+        });
+      });
+
+      // Fecha os modais ao clicar fora
+      function fecharModais(event) {
+        const modais = document.querySelectorAll(".modal");
+        modais.forEach(modal => {
+          if (
+            modal.style.display === "block" &&
+            !modal.contains(event.target) &&
+            !event.target.closest(".botaomenu")
+          ) {
+            modal.style.display = "none";
+          }
+        });
       }
+
+      window.addEventListener("click", fecharModais);
+      window.addEventListener("touchstart", fecharModais);
     });
-  }
-
-  // Fecha ao clicar com mouse ou tocar com dedo
-  window.addEventListener("click", fecharModais);
-  window.addEventListener("touchstart", fecharModais);
-});
-
-
-</script>
+  </script>
 </body>
 </html>
